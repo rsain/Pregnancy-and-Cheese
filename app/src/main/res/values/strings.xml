@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Pregnancy and Cheese</string>
+    <string name="noValue" translatable="false">--</string>
+    <string name="informationOfUse">Can you eat a particular kind of cheese?\n\nGive me the following information and I will tell you if it is safe for you and your baby.</string>
+    <string name="pasteurizedMilk">Pasteurized milk?:</string>
+    <string name="no">NO</string>
+    <string name="yes">YES</string>
+    <string name="moisture">% Moisture:</string>
+    <string name="milkFat">% Milk Fat (M.F.):</string>
+    <string name="imageError">Error?</string>
+    <string name="fillFields">Fill the fields above!</string>
+    <string name="milkMustBePasteurized">Milk must be pasteurized!</string>
+    <string name="lowRisk">This cheese is safe!</string>
+    <string name="highRisk">This cheese is not recommended!</string>
+</resources>

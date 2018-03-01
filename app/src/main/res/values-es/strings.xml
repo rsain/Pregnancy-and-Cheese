@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="informationOfUse">¿Puedes comer este tipo de queso?\n\nDame algo de información y te diré si es seguro para ti y tu bebé.</string>
+    <string name="pasteurizedMilk">¿Leche pasteurizada?:</string>
+    <string name="moisture">% de humedad:</string>
+    <string name="milkFat">% de grasa:</string>
+    <string name="imageError">Error?</string>
+    <string name="fillFields">¡Rellena los campos de arriba!</string>
+    <string name="milkMustBePasteurized">¡La leche debe estar pasteurizada!</string>
+    <string name="lowRisk">¡Este queso es seguro!</string>
+    <string name="highRisk">¡Este queso no es recomendable!</string>
+    <string name="yes">SÍ</string>
+    <string name="no">NO</string>
+    <string name="app_name">Embarazo y Queso</string>
+</resources>

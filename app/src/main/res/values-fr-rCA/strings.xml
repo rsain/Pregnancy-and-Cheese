@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="informationOfUse">Pouvez-vous manger ce genre de fromage?\n\nDonnez-moi les informations suivantes et je vous dirai si c\'est sûr pour vous et votre bébé.</string>
+    <string name="pasteurizedMilk">Lait pasteurisé ? :</string>
+    <string name="moisture">% d’humidité:</string>
+    <string name="milkFat">% gras:</string>
+    <string name="imageError">Erreur ?</string>
+    <string name="fillFields">Remplissez les champs ci-dessus !</string>
+    <string name="milkMustBePasteurized">Le lait doit être pasteurisé !</string>
+    <string name="lowRisk">Ce fromage est sûr !</string>
+    <string name="highRisk">Ce fromage n\'est pas bonne pour vous !</string>
+    <string name="yes">OUI</string>
+    <string name="no">NON</string>
+    <string name="app_name">Grossesse et Fromage</string>
+</resources>
