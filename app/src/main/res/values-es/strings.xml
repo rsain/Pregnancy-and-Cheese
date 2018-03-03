@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="informationOfUse">¿Puedes comer este tipo de queso?\n\nDame algo de información y te diré si es seguro para ti y tu bebé.</string>
+    <string name="introduction">¿Puedes comer este tipo de queso?</string>
+    <string name="informationOfUse">Dame algo de información y te diré si es seguro para ti y tu bebé.</string>
+    <string name="titleForDialog">¿Qué necesito?</string>
+    <string name="messageForDialog">Para clasificar los quesos utilizo una fórmula basada en el porcentaje de grasa y de humedad. La humedad es un factor considerado en la ecuación porque una tasa demasiado alta favorece el desarrollo de bacterias.\n\nPara ayudarte necesito saber si la leche está pasteurizada, el porcentaje de grasa y el porcentaje de humedad. Normalmente, puedes encontrar esta información en la etiqueta del producto.</string>
     <string name="pasteurizedMilk">¿Leche pasteurizada?:</string>
-    <string name="moisture">% de humedad:</string>
-    <string name="milkFat">% de grasa:</string>
+    <string name="moisture">Humedad:</string>
+    <string name="milkFat">Grasa:</string>
     <string name="imageError">Error?</string>
     <string name="fillFields">¡Rellena los campos de arriba!</string>
     <string name="milkMustBePasteurized">¡La leche debe estar pasteurizada!</string>

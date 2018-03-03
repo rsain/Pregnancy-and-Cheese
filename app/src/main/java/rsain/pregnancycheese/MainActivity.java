@@ -1,5 +1,10 @@
 package rsain.pregnancycheese;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     /**
      * References to UI components
      */
+    private FloatingActionButton floatingButton;
     private ImageView ivResult;
     private TextView tvResult;
     private ToggleButton toggleButtonPasteurized;
@@ -30,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private double computedRisk;
 
     /**
-     * Method when the apps is launched. We instanciate references to UI components
+     * Method when the apps is launched. We instantiate references to UI components and we fill and set up components of the UI.
+     *
      * @param savedInstanceState
      */
     @Override
@@ -39,24 +46,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         tvResult = (TextView) findViewById(R.id.textViewResult);
+        floatingButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         toggleButtonPasteurized = (ToggleButton) findViewById(R.id.toggleButtonPasteurized);
         spinnerMilkFat = (Spinner) findViewById(R.id.spinnerMilkFat);
         spinnerMoisture = (Spinner) findViewById(R.id.spinnerMoisture);
         ivResult = (ImageView) findViewById(R.id.imageViewResult);
-    }
-
-    /**
-     * Method before showing the UI to the user. We fill and set up components of the UI.
-     */
-    @Override
-    protected void onStart() {
-        super.onStart();
 
         // Elements for the spinners (from 1 to 100, and the symbil "--")
         List<String> spinElements = new LinkedList<String>();
         spinElements.add(getString(R.string.noValue));
-        for (int i=1; i <= 100; i++)
-        {
+        for (int i = 1; i <= 100; i++) {
             spinElements.add(String.valueOf(i) + "%");
         }
 
@@ -77,20 +76,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     // The toggle is enabled
                     if (!spinnerMilkFat.getSelectedItem().toString().equals(getString(R.string.noValue))) {
                         if (!spinnerMoisture.getSelectedItem().toString().equals(getString(R.string.noValue))) {
-                            milkFat = Integer.valueOf(spinnerMilkFat.getSelectedItem().toString().replace("%",""));
-                            moisture = Integer.valueOf(spinnerMoisture.getSelectedItem().toString().replace("%",""));
+                            milkFat = Integer.valueOf(spinnerMilkFat.getSelectedItem().toString().replace("%", ""));
+                            moisture = Integer.valueOf(spinnerMoisture.getSelectedItem().toString().replace("%", ""));
                             computedRisk = computeRisk(milkFat, moisture);
 
                             if (computedRisk >= getResources().getInteger(R.integer.riskThreshold)) {
-                                UIForLowRisk();
-                            } else {
                                 UIForHighRisk();
+                            } else {
+                                UIForLowRisk();
                             }
                         } else {
                             UIInitial();
                         }
-                    }
-                    else {
+                    } else {
                         UIInitial();
                     }
                 } else {
@@ -100,19 +98,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 }
             }
         });
-    }
 
-    /**
-     * Method when the UI is shown to the user
-     */
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
+        //Event for the floating button
+        floatingButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                getDialog(MainActivity.this, getText(R.string.titleForDialog).toString(), getText(R.string.messageForDialog).toString(), DialogType.SINGLE_BUTTON).show();
+            }
+        });
+
         UIInitial();
     }
 
     /**
      * Event for spinners. We compute the risk of the cheese and we inform the user.
+     *
      * @param parent
      * @param view
      * @param pos
@@ -121,29 +120,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
         int milkFat, moisture;
 
-        if (toggleButtonPasteurized.isChecked())
-        {
+        if (toggleButtonPasteurized.isChecked()) {
             if (!spinnerMilkFat.getSelectedItem().toString().equals(getString(R.string.noValue))) {
                 if (!spinnerMoisture.getSelectedItem().toString().equals(getString(R.string.noValue))) {
-                    milkFat = Integer.valueOf(spinnerMilkFat.getSelectedItem().toString().replace("%",""));
-                    moisture = Integer.valueOf(spinnerMoisture.getSelectedItem().toString().replace("%",""));
+                    milkFat = Integer.valueOf(spinnerMilkFat.getSelectedItem().toString().replace("%", ""));
+                    moisture = Integer.valueOf(spinnerMoisture.getSelectedItem().toString().replace("%", ""));
                     computedRisk = computeRisk(milkFat, moisture);
 
                     if (computedRisk >= getResources().getInteger(R.integer.riskThreshold)) {
-                        UIForLowRisk();
-                    } else {
                         UIForHighRisk();
+                    } else {
+                        UIForLowRisk();
                     }
                 } else {
                     UIInitial();
                 }
-            }
-            else {
+            } else {
                 UIInitial();
             }
-        }
-        else
-        {
+        } else {
             tvResult.setText(R.string.milkMustBePasteurized);
             ivResult.setImageResource(R.drawable.cross);
         }
@@ -151,13 +146,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     /**
      * Function to compute the risk of a cheese
-     * @param milkFat Milk fat (in %)
+     *
+     * @param milkFat  Milk fat (in %)
      * @param moisture Moisture (in %)
      * @return A percentage representing the risk of the cheese
      */
     private double computeRisk(double milkFat, double moisture) {
-        System.out.println("FDDFDF " + (moisture/(100-milkFat))*100);
-        return (moisture/(100-milkFat))*100;
+        return (moisture / (100 - milkFat)) * 100;
     }
 
     /**
@@ -186,5 +181,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
+    }
+
+    /**
+     * Method to create dialogs
+     *
+     * @param context
+     * @param title
+     * @param message
+     * @param typeButtons
+     * @return
+     */
+    public static Dialog getDialog(Context context, String title, String message, DialogType typeButtons) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(title)
+                .setMessage(message)
+                .setCancelable(false);
+
+        if (typeButtons == DialogType.SINGLE_BUTTON) {
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    //do things
+                }
+            });
+        }
+
+        AlertDialog alert = builder.create();
+
+        return alert;
+    }
+
+    /**
+     * Types of dialogs
+     */
+    public enum DialogType {
+        SINGLE_BUTTON
     }
 }

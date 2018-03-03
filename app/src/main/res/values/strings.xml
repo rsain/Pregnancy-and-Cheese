@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">Pregnancy and Cheese</string>
     <string name="noValue" translatable="false">--</string>
-    <string name="informationOfUse">Can you eat a particular kind of cheese?\n\nGive me the following information and I will tell you if it is safe for you and your baby.</string>
+    <string name="introduction">Can you eat a particular kind of cheese?</string>
+    <string name="informationOfUse">Give me the following information and I will tell you if it is safe for you and your baby.</string>
+    <string name="titleForDialog">What do I need?</string>
+    <string name="messageForDialog">In order to categorize cheeses I use a formula based on the percentage of milk fat and the percentage of moisture. Moisture is an important factor considered in the equation because a too high rate favors the development of bacteria.\n\nTo help you I need to know if the milk is pasteurized, the percentage of milk fat and the percentage of moisture. Usually you can find this information on the product label.</string>
     <string name="pasteurizedMilk">Pasteurized milk?:</string>
     <string name="no">NO</string>
     <string name="yes">YES</string>
-    <string name="moisture">% Moisture:</string>
-    <string name="milkFat">% Milk Fat (M.F.):</string>
+    <string name="moisture">Moisture:</string>
+    <string name="milkFat">Milk Fat (M.F.):</string>
     <string name="imageError">Error?</string>
     <string name="fillFields">Fill the fields above!</string>
     <string name="milkMustBePasteurized">Milk must be pasteurized!</string>

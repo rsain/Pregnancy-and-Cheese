@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="informationOfUse">Pouvez-vous manger ce genre de fromage?\n\nDonnez-moi les informations suivantes et je vous dirai si c\'est sûr pour vous et votre bébé.</string>
+    <string name="introduction">Pouvez-vous manger ce genre de fromage?</string>
+    <string name="informationOfUse">Donnez-moi les informations suivantes et je vous dirai si c\'est sûr pour vous et votre bébé.</string>
+    <string name="titleForDialog">De quoi ai-je besoin?</string>
+    <string name="messageForDialog">Afin de catégoriser les fromages j\'utilise une formule basée sur le pourcentage de matières grasses et d\'humidité. Le taux d\'humidité est un facteur considéré dans l\'équation parce-que un taux trop élevé favorise le développement des bactéries.\n\nPour t\'aider je dois savoir si le lait est pasteurisé, le pourcentage de gras et le pourcentage d\'humidité. Normalment c\'est possible trouver cette information sur la étiquette du produit.</string>
     <string name="pasteurizedMilk">Lait pasteurisé ? :</string>
-    <string name="moisture">% d’humidité:</string>
-    <string name="milkFat">% gras:</string>
+    <string name="moisture">Humidité:</string>
+    <string name="milkFat">Gras:</string>
     <string name="imageError">Erreur ?</string>
     <string name="fillFields">Remplissez les champs ci-dessus !</string>
     <string name="milkMustBePasteurized">Le lait doit être pasteurisé !</string>
